@@ -1,0 +1,13 @@
+package com.likhith.gocity;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class GocityApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
