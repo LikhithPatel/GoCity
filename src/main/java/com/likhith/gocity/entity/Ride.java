@@ -32,14 +32,18 @@ public class Ride {
     private String destinationCity;
 
     @Column(nullable=false)
-    private LocalDateTime departureTIme;
+    private LocalDateTime departureTime;
 
     @Column(nullable=false)
     private Integer totalSeats;
 
     @Column(nullable=false)
+    private Integer availableSeats;
+
+    @Column(nullable=false)
     private Double pricePerSeat;
 
+    @Enumerated(EnumType.STRING)
     private RideStatus status=RideStatus.SCHEDULED;
 
     private String notes;

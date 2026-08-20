@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface RideRepository extends JpaRepository<Ride,Long> {
-    List<Ride> findByOwnerIdOrderByDepartureTimeDesc(Long DriverId);
+    List<Ride> findByDriverIdOrderByDepartureTimeDesc(Long driverId);
 
     @Query("SELECT r FROM Ride r WHERE " +
             "LOWER(r.sourceCity) = LOWER(:source) AND " +
