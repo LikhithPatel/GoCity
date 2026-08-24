@@ -39,6 +39,9 @@ public class Profile {
     @Column(nullable=false)
     private Double ratingAverage=0.0;
 
+    @Column(nullable=false)
+    private Integer totalRides=0;
+
     private Boolean verified=false;
 
     private LocalDateTime createdAt=LocalDateTime.now();
