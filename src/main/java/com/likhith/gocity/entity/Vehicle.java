@@ -22,6 +22,6 @@ public class Vehicle {
     private String make;
     private String model;
     private String plateNumber;
-    private String totalSeats;
+    private Integer totalSeats;
     private String vehicleType;
 }
