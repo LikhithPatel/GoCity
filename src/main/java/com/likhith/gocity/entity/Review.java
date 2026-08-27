@@ -18,6 +18,10 @@ public class Review {
     private long id;
 
     @ManyToOne
+    @JoinColumn(name="ride_id", nullable=false)
+    private Ride ride;
+
+    @ManyToOne
     @JoinColumn(name="reviewer_id", nullable=false)
     private Profile reviewer;
 
