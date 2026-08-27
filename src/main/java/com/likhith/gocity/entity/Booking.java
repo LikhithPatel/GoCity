@@ -40,6 +40,6 @@ public class Booking {
     }
 
     @Enumerated(EnumType.STRING)
-    private BookingStatus bookingStatus;
+    private BookingStatus status=BookingStatus.CONFIRMED;
 
 }
