@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import PostRide from "./pages/PostRide";
 
 export default function App(){
   const[page,setPage]=useState("home");
@@ -17,6 +18,7 @@ export default function App(){
       <Navbar navigate={navigate} currentPage={page}/>
       <main className="max-w-6xl mx-auto px-4 py-8">
         {page==="home" && <Home navigate={navigate} currentUserId={currentUserId}/>}
+        {page==="post"&&<PostRide currentUserId={currentUserId} navigate={navigate}/>}
       </main>
     </div>
   )

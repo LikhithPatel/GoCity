@@ -72,7 +72,7 @@ export default function Home({navigate}){
                     <RideCard key={ride.id} ride={ride} onClick={() => navigate("details", ride.id)} />
                 ))}
                  {!loading && rides.length === 0 && (
-                    <div className="text-center py-16 text-gray-400">No rides found. Try a different search.</div>
+                    <div className="text-center py-16 text-gray-400">No rides found.</div>
                 )}
              </div>
         </div>
