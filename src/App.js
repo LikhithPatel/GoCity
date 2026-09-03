@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
 export default function App(){
   const[page,setPage]=useState("home");
@@ -14,7 +15,9 @@ export default function App(){
   return(
     <div className="min-h-screen bg-gray-50">
       <Navbar navigate={navigate} currentPage={page}/>
-      <main className="max-w-6xl mx-auto px-4 py-8"></main>
+      <main className="max-w-6xl mx-auto px-4 py-8">
+        {page==="home" && <Home navigate={navigate} currentUserId={currentUserId}/>}
+      </main>
     </div>
   )
 }
