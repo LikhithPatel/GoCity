@@ -43,7 +43,7 @@ export default function Home({navigate}){
             <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded 3-xl p-8 mb-8 text-white">
                 <h1 className="text-3xl font-bold mb-1">Find your ride across the state</h1>
                 <p className="text-indigo-100 mb-6">Affordable, social and convenient carpooling with GoCity</p>
-                <form omSubmit={handleSearch} className="bg-white rounded-2xl p-3 flex flex-wrap gap-2">
+                <form onSubmit={handleSearch} className="bg-white rounded-2xl p-3 flex flex-wrap gap-2">
                     <input className="flex-1 min-w-[150px] px-4 py-3 rounded-xl text-gray-800 outline-none"
                            placeholder="From"
                            value={search.source}
