@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import api from "../api/api";
 
 export default function MyBookings({ currentUserId }) {
   const [bookings, setBookings] = useState([]);
 
-  const fetchBookings = () => {
+  const fetchBookings = useCallback(() => {
     api.get(`/bookings/passenger/${currentUserId}`).then((res) => setBookings(res.data));
-  };
+  },[currentUserId])
 
   useEffect(() => {
     fetchBookings();
-  }, [currentUserId]);
+  }, [fetchBookings]);
 
   const handleCancel = async (id) => {
     await api.patch(`/bookings/${id}/cancel`);
