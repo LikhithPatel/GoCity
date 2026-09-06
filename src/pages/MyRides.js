@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import api from "../api/api";
 import RideCard from "../components/RideCard";
 
 export default function MyRides({ currentUserId, navigate }) {
   const [rides, setRides] = useState([]);
 
-  const fetchRides = () => {
+  const fetchRides = useCallback(() => {
     api.get(`/rides/driver/${currentUserId}`).then((res) => setRides(res.data));
-  };
+  },[currentUserId]);
 
   useEffect(() => {
     fetchRides();
-  }, [currentUserId]);
+  }, [fetchRides]);
 
   const handleCancel = async (id) => {
     await api.patch(`/rides/${id}/cancel`);
