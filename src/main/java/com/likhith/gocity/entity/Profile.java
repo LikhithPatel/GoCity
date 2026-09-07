@@ -1,5 +1,6 @@
 package com.likhith.gocity.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -26,6 +27,11 @@ public class Profile {
     @Email
     @Column(nullable=false,unique=true)
     private String email;
+
+    @NotBlank
+    @JsonIgnore
+    @Column(nullable=false)
+    private String password;
 
     @NotBlank
     @Column(nullable=false,unique=true)
