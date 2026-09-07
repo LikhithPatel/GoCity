@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import api from "../api/api";
 
 export default function Profile({ currentUserId }) {
@@ -16,26 +16,26 @@ export default function Profile({ currentUserId }) {
   });
   const [reviews, setReviews] = useState([]);
 
-  const loadProfile = () => {
+  const loadProfile = useCallback(() => {
     api.get(`/profiles/${currentUserId}`).then((res) => {
       setProfile(res.data);
       setForm(res.data);
     }).catch(() => setProfile(null));
-  };
+  },[currentUserId]);
 
-  const loadVehicles = () => {
+  const loadVehicles = useCallback(() => {
     api.get(`/vehicles/owner/${currentUserId}`).then((res) => setVehicles(res.data));
-  };
+  },[currentUserId])
 
-  const loadReviews = () => {
+  const loadReviews = useCallback(() => {
     api.get(`/reviews/profile/${currentUserId}`).then((res) => setReviews(res.data));
-  };
+  },[currentUserId]);
 
   useEffect(() => {
     loadProfile();
     loadVehicles();
     loadReviews();
-  }, [currentUserId]);
+  }, [loadProfile, loadVehicles, loadReviews]);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -66,6 +66,7 @@ export default function Profile({ currentUserId }) {
 
   return (
     <div className="max-w-2xl mx-auto space-y-6">
+      {/* Profile card */}
       <div className="bg-white rounded-2xl shadow-sm p-8">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-bold text-gray-800">My Profile</h1>
@@ -153,6 +154,7 @@ export default function Profile({ currentUserId }) {
         )}
       </div>
 
+      {/* Vehicles */}
       {profile && (
         <div className="bg-white rounded-2xl shadow-sm p-8">
           <h2 className="text-lg font-bold text-gray-800 mb-4">My Vehicles</h2>
@@ -189,6 +191,7 @@ export default function Profile({ currentUserId }) {
         </div>
       )}
 
+      {/* Reviews */}
       {profile && (
         <div className="bg-white rounded-2xl shadow-sm p-8">
           <h2 className="text-lg font-bold text-gray-800 mb-4">Reviews</h2>
