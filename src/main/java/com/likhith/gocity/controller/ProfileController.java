@@ -14,11 +14,6 @@ import java.util.List;
 public class ProfileController {
     private final ProfileService profileService;
 
-    @PostMapping
-    public ResponseEntity<Profile> createProfile(@RequestBody Profile profile){
-        return ResponseEntity.ok(profileService.createProfile(profile));
-    }
-
     @GetMapping
     public ResponseEntity<List<Profile>> getAllProfiles(){
         return ResponseEntity.ok(profileService.getAllProfiles());
