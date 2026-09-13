@@ -13,13 +13,6 @@ import java.util.List;
 public class ProfileService {
     private final ProfileRepository profileRepository;
 
-    public Profile createProfile(Profile profile) {
-        profileRepository.findByEmail(profile.getEmail()).ifPresent(p -> {
-            throw new ApiException("Profile with this email already exists");
-        });
-        return profileRepository.save(profile);
-    }
-
     public List<Profile> getAllProfiles() {
         return profileRepository.findAll();
     }

@@ -17,6 +17,7 @@ public class VehicleService {
 
     public Vehicle addVehicle(Long ownerId, Vehicle vehicle){
         Profile owner=profileService.getProfileById(ownerId);
+        vehicle.setOwner(owner);
         return vehicleRepository.save(vehicle);
     }
 
