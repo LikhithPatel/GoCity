@@ -44,6 +44,10 @@ build/
 # production
 /build
 
+# local secrets
+/config/
+.env
+
 # misc
 .DS_Store
 .env.local
